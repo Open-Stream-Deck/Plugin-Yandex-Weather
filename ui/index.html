@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Яндекс Погода</title>
+    <link rel="stylesheet" href="/_opensd/inspector.css" />
+    <script src="/_opensd/inspector.js"></script>
+    <style>
+      textarea:not(:focus) {
+        -webkit-text-security: disc;
+      }
+      .scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="row">
+      <div class="list__item">
+        <span class="list__icon"><img src="../assets/icon.svg" alt="" /></span>
+        <span class="list__text">
+          <span class="list__title">Яндекс Погода</span>
+          <span class="status status--busy" id="status" aria-live="polite">Подключение…</span>
+        </span>
+      </div>
+      <button class="button button--primary" id="refresh" style="flex: none">Обновить</button>
+    </section>
+
+    <section>
+      <h2>Эта кнопка</h2>
+      <label>
+        Под температурой
+        <select data-setting="caption">
+          <option value="feels">Как ощущается</option>
+          <option value="condition">Состояние: ясно, дождь, снег</option>
+          <option value="none">Ничего, крупная иконка</option>
+        </select>
+      </label>
+      <label>
+        Иконки
+        <select data-setting="theme">
+          <option value="auto">Под фон</option>
+          <option value="dark">Для тёмного фона</option>
+          <option value="light">Для светлого фона</option>
+          <option value="circle">В кружке</option>
+          <option value="flat">Белые плоские</option>
+        </select>
+      </label>
+      <div class="field">
+        Фон
+        <div class="segmented">
+          <label class="segmented__item">
+            <input type="radio" name="background" value="none" data-setting="background" />
+            Прозрачный
+          </label>
+          <label class="segmented__item">
+            <input type="radio" name="background" value="color" data-setting="background" />
+            Цвет
+          </label>
+        </div>
+      </div>
+      <div class="field-row" data-show="color">
+        <span class="field-row__label">Цвет фона</span>
+        <input type="color" data-setting="color" value="#1b1b1b" />
+      </div>
+      <p class="hint">Под прозрачный фон можно поставить свою картинку через «Иконку клавиши».</p>
+    </section>
+
+    <section>
+      <h2>Место</h2>
+      <label>
+        Координаты
+        <input
+          data-global="coords"
+          id="coords"
+          placeholder="55.751244, 37.618423"
+          spellcheck="false"
+          autocomplete="off"
+        />
+        <span class="hint" id="coordsHint"></span>
+      </label>
+    </section>
+
+    <section>
+      <h2>Ключи API</h2>
+      <label>
+        По одному на строку
+        <textarea data-global="keys" rows="4" spellcheck="false" autocomplete="off"></textarea>
+        <span class="hint">
+          Когда ключ упирается в лимит, плагин берёт следующий. Ключи выдают в
+          <a href="#" data-url="https://yandex.ru/pogoda/b2b/console/smarthome">консоли Яндекс Погоды</a>
+        </span>
+      </label>
+      <label>
+        Обновлять
+        <select data-global="interval">
+          <option value="60" data-hint="1 ключ">Раз в час</option>
+          <option value="30" data-hint="2 ключа">Каждые 30 минут</option>
+          <option value="15" data-hint="4 ключа">Каждые 15 минут</option>
+        </select>
+        <span class="hint" id="quota"></span>
+      </label>
+    </section>
+
+    <script src="inspector.js"></script>
+  </body>
+</html>

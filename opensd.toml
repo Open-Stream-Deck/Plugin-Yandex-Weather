@@ -1,0 +1,28 @@
+sdk = 1
+id = "com.whxtelxs.yandexweather"
+name = "Яндекс Погода"
+version = "1.0.0"
+author = "whxtelxs"
+description = "Текущая погода из API Яндекс Погоды: иконка и температура на кнопке или боковом экране, свой фон"
+homepage = "https://lisik.dev"
+license = "ISC"
+icon = "assets/icon.svg"
+min_app = "1.0.0"
+
+[runtime]
+type = "js"
+main = "plugin.js"
+
+[ui]
+inspector = "ui/index.html"
+
+[permissions]
+network = ["https://api.weather.yandex.ru", "https://yastatic.net"]
+
+[[actions]]
+id = "com.whxtelxs.yandexweather.now"
+name = "Погода сейчас"
+description = "Иконка и температура; нажатие обновляет"
+icon = "assets/icon.svg"
+controllers = ["key", "side"]
+settings = { caption = "feels", theme = "auto", background = "none", color = "#1b1b1b" }

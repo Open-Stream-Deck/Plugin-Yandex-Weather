@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "target": "ES2022",
+    "lib": ["ES2022", "WebWorker"],
+    "strict": true,
+    "noEmit": true,
+    "noImplicitAny": false
+  },
+  "include": ["plugin.js", "opensd.d.ts"]
+}
